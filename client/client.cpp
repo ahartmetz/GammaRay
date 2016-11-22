@@ -114,7 +114,7 @@ void Client::socketConnected()
 void Client::resetClientDevice()
 {
     if (m_clientDevice) {
-        m_clientDevice->deleteLater();
+        QMetaObject::invokeMethod(m_clientDevice, "deleteLater", Qt::QueuedConnection);
         m_clientDevice = 0;
     }
 }
